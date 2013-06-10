@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<files>
+		<file>
+			<dokument>
+				<name attribute="zieh mich doch">Dokument "a.xml"</name>
+			</dokument>
+		</file>
+		<file>
+			<dokument>
+				<name>Dokument "b.xml"</name>
+			</dokument>
+		</file>
+	</files>
+	<hans>
+		<wurst>
+			<dokument>
+				<name attribute="zieh mich doch">Dokument "a.xml"</name>
+			</dokument>
+		</wurst>
+		<wurst>
+			<dokument>
+				<name>Dokument "b.xml"</name>
+			</dokument>
+		</wurst>
+	</hans>
+	<value attribute="zieh mich doch"/>
+</root>

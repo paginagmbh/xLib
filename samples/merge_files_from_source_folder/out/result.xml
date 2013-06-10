@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<dokument>
+		<name attribute="zieh mich doch">Dokument "a.xml"</name>
+	</dokument>
+	<dokument>
+		<name>Dokument "b.xml"</name>
+	</dokument>
+</root>
