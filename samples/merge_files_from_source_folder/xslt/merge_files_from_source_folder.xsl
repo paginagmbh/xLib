@@ -5,13 +5,13 @@
 
 	<xd:doc>
 		<xd:desc>
-			<xd:p>Pagina-Namensraum instanziieren und xlib includieren</xd:p>
+			<xd:p>pagina-Namensraum instanziieren und xlib includieren</xd:p>
 		</xd:desc>
 	</xd:doc>
-	<xsl:include href="file:/H:/9-Skripte/XSLT/pagina.xslt.library/xlib.xsl"/>
+	<xsl:include href="../../../xlib.xsl"/>
 	<xd:doc>
 		<xd:desc>
-			<xd:p>Root Template: Aufruf der Funktion join_files_from_source_folder</xd:p>
+			<xd:p>Root Template: Aufruf der Funktion merge_files_from_source_folder</xd:p>
 			<xd:p>übergeben wird nur der Document Node</xd:p>
 			<xd:p>Die Funktion spielt alle Dokumente aus dem Quellverzeichnis direkt zusammen. Sie können über copy-of direkt eingefügt werden, oder in eine Variable abgelegt werden (zum Beispiel um nur auf bestimmte Werte zuzugreifen)</xd:p>
 		</xd:desc>

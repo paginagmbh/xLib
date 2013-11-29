@@ -5,10 +5,10 @@
 
 	<xd:doc>
 		<xd:desc>
-			<xd:p>Pagina-Namensraum instanziieren und xlib includieren</xd:p>
+			<xd:p>pagina-Namensraum instanziieren und xlib includieren</xd:p>
 		</xd:desc>
 	</xd:doc>
-	<xsl:include href="file:/H:/9-Skripte/XSLT/pagina.xslt.library/xlib.xsl"/>
+	<xsl:include href="../../../xlib.xsl"/>
 
 	<xd:doc>
 		<xd:desc>
