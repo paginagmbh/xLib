@@ -1,0 +1,1698 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Stylesheet documentation for: http://www.pagina-online.de/xlib</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+        var parametersBoxes= new Array('prs_F_read_files_from_source_folderS_xlib.xsl', 
+				'prs_F_merge_files_from_source_folderS_xlib.xsl', 
+				'prs_F_reorderS_xlib.xsl', 
+				'prs_F_create_uriS_xlib.xsl', 
+				'prs_F_load_xmlS_xlib.xsl', 
+				'prs_F_get-current-xpathS_xlib.xsl', 
+				'prs_F_Character-to-hexCodeS_xlib.xsl', 
+				'prs_F_decimal-to-hexS_xlib.xsl', 
+				'prs_F_decimal-to-hex-HELPERS_xlib.xsl', 
+				'prs_F_is-not-elementS_xlib.xsl');
+
+        
+        var usedByBoxes= new Array('uB_F_create_uriS_xlib.xsl', 
+				'uB_F_decimal-to-hexS_xlib.xsl', 
+				'uB_F_decimal-to-hex-HELPERS_xlib.xsl');
+
+        var docBoxes= new Array('dS_F_read_files_from_source_folderS_xlib.xsl', 
+				'dS_F_merge_files_from_source_folderS_xlib.xsl', 
+				'dS_F_reorderS_xlib.xsl', 
+				'dS_F_create_uriS_xlib.xsl', 
+				'dS_F_load_xmlS_xlib.xsl', 
+				'dS_F_get-current-xpathS_xlib.xsl', 
+				'dS_F_Character-to-hexCodeS_xlib.xsl', 
+				'dS_F_decimal-to-hexS_xlib.xsl', 
+				'dS_F_decimal-to-hex-HELPERS_xlib.xsl', 
+				'dS_F_is-not-elementS_xlib.xsl');
+
+        var sourceBoxes= new Array('src_F_read_files_from_source_folderS_xlib.xsl', 
+				'src_F_merge_files_from_source_folderS_xlib.xsl', 
+				'src_F_reorderS_xlib.xsl', 
+				'src_F_create_uriS_xlib.xsl', 
+				'src_F_load_xmlS_xlib.xsl', 
+				'src_F_get-current-xpathS_xlib.xsl', 
+				'src_F_Character-to-hexCodeS_xlib.xsl', 
+				'src_F_decimal-to-hexS_xlib.xsl', 
+				'src_F_decimal-to-hex-HELPERS_xlib.xsl', 
+				'src_F_is-not-elementS_xlib.xsl');
+
+        
+        
+        var referencesBoxes= new Array('refs_F_load_xmlS_xlib.xsl', 
+				'refs_F_Character-to-hexCodeS_xlib.xsl', 
+				'refs_F_decimal-to-hexS_xlib.xsl', 
+				'refs_F_decimal-to-hex-HELPERS_xlib.xsl');
+
+        
+        
+        
+        
+        var button_prefix = 'bt_';
+        
+        /**
+        * Get all DIV elements with a specified class name.
+        *
+        * @param className The class name. 
+        */
+        function getElementsByClassName(className) {
+            var results = [];
+    
+             if (document.getElementsByClassName == undefined) {
+                var allElements = document.getElementsByTagName("div");
+                var element;
+                for (var i = 0; i < allElements.length; i++) {
+                    var element = allElements[i];
+                	var elementClass = element.className;
+                	if (elementClass == className) { 
+                		results.push(element);
+                	}
+                }
+             } else {
+                results = document.getElementsByClassName(className);
+             }
+    
+            return results;
+        }
+            
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+
+       /**
+        * Switch between the compact list representation and the clasic list representation.
+        */
+       function switchMode(checkBox) {
+            if (checkBox == null) {
+                // Checkbox not found
+            } else if (checkBox.checked == 1) {
+                // Compact mode
+                var divs = getElementsByClassName('refItemBlock');
+                for (var i = 0; i < divs.length; i ++) {
+                    divs[i].style.display = "inline";
+                    var children = divs[i].children;
+                    var refItemSep = children[children.length - 1];
+                    if (refItemSep.className == "refItemSep") {
+                        children[children.length - 1].style.display = "inline";
+                    }
+                }
+            } else {
+                // Expanded mode
+                var divs = getElementsByClassName('refItemBlock');
+                for (var i = 0; i < divs.length; i ++) {
+                    divs[i].style.display = "block";
+                    var children = divs[i].children;
+                    var refItemSep = children[children.length - 1];
+                    if (refItemSep.className == "refItemSep") {
+                        children[children.length - 1].style.display = "none";
+                    }
+                }
+            }
+        }
+
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updPT(message) {
+            top.document.title = "Stylesheet documentation for: " + message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id){
+         var selectIds = new Array('toc_group_by_location', 'toc_group_by_component_type', 'toc_group_by_namespace', 'toc_group_by_mode');
+            // Make all the tabs invisible.
+            for (i = 0; i < 4; i++){
+               var tab = getElementObject(selectIds[i]);
+               tab.style.display = 'none';
+            }
+            var selTab = getElementObject(id);
+            selTab.style.display = 'block';            
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cTL"></td>
+               <td class="rt_lT"></td>
+               <td class="rt_cTR"></td>
+            </tr>
+            <tr>
+               <td class="rt_lL"></td>
+               <td class="rt_cnt">
+                  <h3>Mode:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchMode(this);" class="control" /></span><span class="globalControlName">Compact lists</span></td>
+                     </tr>
+                  </table>
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, docBoxes);" class="control" /></span><span class="globalControlName">Documentation
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, parametersBoxes);" class="control" /></span><span class="globalControlName">Parameters </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, referencesBoxes);" class="control" /></span><span class="globalControlName">References </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lR"></td>
+            </tr>
+            <tr>
+               <td class="rt_cBL"></td>
+               <td class="rt_lB"></td>
+               <td class="rt_cBR"></td>
+            </tr>
+         </table>
+      </div><a id="F_read_files_from_source_folderS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:read_files_from_source_folder (<span class="fParams">files_container, file_container, rootnode</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_read_files_from_source_folderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_read_files_from_source_folderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_read_files_from_source_folderS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Funktion:</b> Erzeugt ein Container Element ($1). Liest alle XML-Dokumente des Ordners einer Quelldatei
+                                    ein und speichert Sie in ein weiteres Container Element ($2). Übergeben wird immer
+                                    der document-node "/" ($3).
+                                 </p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b></b></td>
+                                       <td>Name des umgebendesn Container-Elements für die Dateien</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="paramName"><b></b></td>
+                                       <td>Name des umgebendesn Container-Elements für die einzelne Datei</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="paramName"><b></b></td>
+                                       <td>Document Node "/"</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_read_files_from_source_folderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_read_files_from_source_folderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_read_files_from_source_folderS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Type</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">file_container</td>
+                                    <td>No namespace</td>
+                                    <td>xs:string</td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">files_container</td>
+                                    <td>No namespace</td>
+                                    <td>xs:string</td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">rootnode</td>
+                                    <td>No namespace</td>
+                                    <td>node()</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_read_files_from_source_folderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_read_files_from_source_folderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_read_files_from_source_folderS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:read_files_from_source_folder"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"files_container"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"file_container"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"rootnode"</span><span class="tAN"> as=</span><span class="tAV">"node()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:element</span><span class="tAN"> name=</span><span class="tAV">"{$files_container}"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"collection(concat(substring-before(document-uri($rootnode), tokenize(document-uri($rootnode), '/')[last()]),'?select=*.xml'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:element</span><span class="tAN"> name=</span><span class="tAV">"{$file_container}"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"document(document-uri(/))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:element&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:element&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_merge_files_from_source_folderS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:merge_files_from_source_folder (<span class="fParams">rootnode</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_merge_files_from_source_folderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_merge_files_from_source_folderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_merge_files_from_source_folderS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Funktion:</b> Fügt alle Dokumente aus dem Quellverzeichnis ein. Übergeben wird immer der document-node
+                                    "/" ($3).
+                                 </p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b></b></td>
+                                       <td>Document Node "/"</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_merge_files_from_source_folderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_merge_files_from_source_folderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_merge_files_from_source_folderS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Type</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">rootnode</td>
+                                    <td>No namespace</td>
+                                    <td>node()</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_merge_files_from_source_folderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_merge_files_from_source_folderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_merge_files_from_source_folderS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:merge_files_from_source_folder"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"rootnode"</span><span class="tAN"> as=</span><span class="tAV">"node()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"collection(concat(substring-before(document-uri($rootnode), tokenize(document-uri($rootnode), '/')[last()]),'?select=*.xml'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"document(document-uri(/))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_reorderS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:reorder (<span class="fParams">context_item, orderlist</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_reorderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_reorderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_reorderS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p>Ordnet die enhaltenen Elemente des übergebenen Kontext-Elements anhand einer ebenfalls
+                                    übergabenen Liste nach dem Muster 'element_a element_b #rest element_c ...', 
+                                    			wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht.
+                                    Reguläre Ausdrücke bei den Elementnamen werden unterstützt.
+                                 </p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>context_item</b></td>
+                                       <td>Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="paramName"><b>orderlist</b></td>
+                                       <td>Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form
+                                          'element_a element_b #rest element_c ...', wobei #rest für "Alle anderen Elemente
+                                          außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen
+                                          werden unterstützt.
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_reorderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_reorderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_reorderS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Type</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">context_item</td>
+                                    <td>No namespace</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">orderlist</td>
+                                    <td>No namespace</td>
+                                    <td>xs:string</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_reorderS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_reorderS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_reorderS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:reorder"</span><span class="tAN"> xmlns:pag=</span><span class="tAV">"http://www.pagina-online.de"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"context_item"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', 
+			wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt.--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"orderlist"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Übergebene Elementliste aufsplitten--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"elements"</span><span class="tAN"> select=</span><span class="tAV">"tokenize($orderlist, '\s+')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Elementliste durchlaufen--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$elements"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--Aktuelles Element in Variable speichern ('self::' ändert sich später)--&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"element"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--Fallunterscheidung für den Namen des Elements--&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!--ggf. alle anderen Elemente abarbeiten--&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">".='#rest'"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!--Alle Elemente prozessieren, die NICHT zu einem der Ausdrücke (RegExp) in der Elementliste passen--&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"$context_item/* except ($context_item/*[some $regex in $elements satisfies (matches(name(), $regex))])"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!--Normaler Elementaufruf--&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!--Alle Elemente prozessieren, die zum Ausdruck passen (RegExp)--&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"$context_item/*[matches(name(), $element)]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_create_uriS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:create_uri (<span class="fParams">path</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_create_uriS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_create_uriS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_create_uriS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p>Wandelt einen übergebenen Pfad in eine gültige URI um</p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>path</b></td>
+                                       <td>Pfad der umzuwandeln ist</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_F_create_uriS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_F_create_uriS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_F_create_uriS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_load_xmlS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>pa:load_xml (</span><span class="fParams">path_or_uri</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_create_uriS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_create_uriS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_create_uriS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Type</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">path</td>
+                                    <td>No namespace</td>
+                                    <td>xs:string</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_create_uriS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_create_uriS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_create_uriS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:create_uri"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"path"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('file:///', replace(replace($path, '\\', '/'), ' ', '%20'))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_load_xmlS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:load_xml (<span class="fParams">path_or_uri</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_load_xmlS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_load_xmlS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_load_xmlS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p>Lädt XML aus einer Datei in eine Variable, aber nur, wenn die Datei auch wirklich
+                                    vorhanden ist
+                                 </p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>path_or_uri</b></td>
+                                       <td>Pfad zur XML-Datei</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_F_load_xmlS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_F_load_xmlS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_F_load_xmlS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_create_uriS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>create_uri (</span><span class="fParams">path</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_load_xmlS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_load_xmlS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_load_xmlS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">path_or_uri</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_load_xmlS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_load_xmlS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_load_xmlS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:load_xml"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"path_or_uri"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"doc-available($path_or_uri)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"document(pa:create_uri($path_or_uri))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_get-current-xpathS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:get-current-xpath (<span class="fParams">current-node</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_get-current-xpathS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_get-current-xpathS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_get-current-xpathS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Author:</b> Björn Dünckel
+                                 </p>
+                                 			
+                                 <p>Funktion um den Absoluten Pfad des Kontext-Knotens zu ermitteln (erleichterung des
+                                    Debuggings)
+                                 </p>
+                                 			
+                                 <p>Aufruf ist immer "pa:get-current-xpath(.)"</p>
+                                 			
+                                 <p>ACHTUNG EINSCHRÄNKUNG: Der Current-Node muss IMMER ein Element sein!</p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>current-node</b></td>
+                                       <td>Der Kontext-Knoten</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_get-current-xpathS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_get-current-xpathS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_get-current-xpathS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">current-node</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_get-current-xpathS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_get-current-xpathS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_get-current-xpathS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:get-current-xpath"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Übergeben des aktuellen Elements--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"current-node"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Merken des aktuellen Knotennamens--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"currend-node-name"</span><span class="tAN"> select=</span><span class="tAV">"$current-node/name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--Iterieren über alle Vorfahren-Elemente--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$current-node/ancestor::*"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--Merken des Namens vom aktuellen Vorfahren-Element--&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"currend-ancestor-name"</span><span class="tAN"> select=</span><span class="tAV">"name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten--&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('/',name(),'[',count(preceding-sibling::*[name()=$currend-ancestor-name])+1,']')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- Abschluss des absluten XPath-Ausdrucks mit Name und Position des aktuellen Elementes --&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('/',$currend-node-name,'[',count($current-node/preceding-sibling::*[name()=$currend-node-name])+1,']')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_Character-to-hexCodeS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:Character-to-hexCode (<span class="fParams">character</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_Character-to-hexCodeS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_Character-to-hexCodeS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_Character-to-hexCodeS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Author:</b> Tobias Fischer
+                                 </p>
+                                 			
+                                 <p>Gibt den hexadezimalen Code eines Unicode-codierten Zeichens zurück</p>
+                                 			
+                                 <p>Rückgabeformat: <i>mind. 4-stellig mit führenden Nullen und '#x'</i></p>
+                                 			
+                                 <p>Beispiele: <i>#x0001, #x00A0, #x2001, #x1014F</i></p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>character</b></td>
+                                       <td>Glyphe/Zeichen deren Hexcode zu bestimmen ist</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_F_Character-to-hexCodeS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_F_Character-to-hexCodeS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_F_Character-to-hexCodeS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_decimal-to-hexS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>decimal-to-hex (</span><span class="fParams">decimalNumber</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_Character-to-hexCodeS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_Character-to-hexCodeS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_Character-to-hexCodeS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">character</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_Character-to-hexCodeS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_Character-to-hexCodeS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_Character-to-hexCodeS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:Character-to-hexCode"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"character"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"hexString"</span><span class="tAN"> select=</span><span class="tAV">"pa:decimal-to-hex(string-to-codepoints($character))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"string-length($hexString) = 1"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('#x000', $hexString)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"string-length($hexString) = 2"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('#x00', $hexString)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"string-length($hexString) = 3"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('#x0', $hexString)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('#x', $hexString)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_decimal-to-hexS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:decimal-to-hex (<span class="fParams">decimalNumber</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_decimal-to-hexS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_decimal-to-hexS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_decimal-to-hexS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Author:</b> Tobias Fischer
+                                 </p>
+                                 			
+                                 <p>Wandelt eine Dezimalzahl in hexadezimalformat um</p>
+                                 			
+                                 <p>Rückgabedatentyp: <i>xs:string</i></p>
+                                 			
+                                 <p>Rückgabeformat: <i>reines hexadezimalformat OHNE führende Nullen, etc.</i></p>
+                                 			
+                                 <p>Beispiele: <i>1, A0, 2001, 1014F</i></p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>decimalNumber</b></td>
+                                       <td>Dezimalzahl</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_F_decimal-to-hexS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_F_decimal-to-hexS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_F_decimal-to-hexS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_Character-to-hexCodeS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>pa:Character-to-hexCode (</span><span class="fParams">character</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_F_decimal-to-hexS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_F_decimal-to-hexS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_F_decimal-to-hexS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_decimal-to-hex-HELPERS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>decimal-to-hex-HELPER (</span><span class="fParams">decimalNumber</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_decimal-to-hexS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_decimal-to-hexS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_decimal-to-hexS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">decimalNumber</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_decimal-to-hexS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_decimal-to-hexS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_decimal-to-hexS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:decimal-to-hex"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"decimalNumber"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"string-join(pa:decimal-to-hex-HELPER($decimalNumber),'')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_decimal-to-hex-HELPERS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:decimal-to-hex-HELPER (<span class="fParams">decimalNumber</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_decimal-to-hex-HELPERS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_decimal-to-hex-HELPERS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_decimal-to-hex-HELPERS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Author:</b> Tobias Fischer
+                                 </p>
+                                 			
+                                 <p>Interne rekursive Hilfsfunktion um eine Dezimalzahl in hexadezimalformat zu wandeln</p>
+                                 			
+                                 <p>Wird benötigt, weil diese rekursive Funktion als Input / Output eine String-Sequenz
+                                    verwendet und wir am Ende nicht einfach joinen können. Dazu ist die "echte" <a href="xlib1.html#F_decimal-to-hexS_xlib.xsl" target="_self">decimal-to-hex</a>-Funktion da
+                                 </p>
+                                 			
+                                 <p>Rückgabedatentyp: <i>xs:string+</i></p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>decimalNumber</b></td>
+                                       <td>Dezimalzahl</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string+</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_F_decimal-to-hex-HELPERS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_F_decimal-to-hex-HELPERS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_F_decimal-to-hex-HELPERS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Functions</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_decimal-to-hexS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>pa:decimal-to-hex (</span><span class="fParams">decimalNumber</span><span>)</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="xlib1.html#F_decimal-to-hex-HELPERS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>pa:decimal-to-hex-HELPER (</span><span class="fParams">decimalNumber</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_F_decimal-to-hex-HELPERS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_F_decimal-to-hex-HELPERS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_F_decimal-to-hex-HELPERS_xlib.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="xlib1.html#F_decimal-to-hex-HELPERS_xlib.xsl" target="_self" title="http://www.pagina-online.de/xlib" onclick="updPT('http://www.pagina-online.de/xlib')"><span>decimal-to-hex-HELPER (</span><span class="fParams">decimalNumber</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_decimal-to-hex-HELPERS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_decimal-to-hex-HELPERS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_decimal-to-hex-HELPERS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">decimalNumber</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_decimal-to-hex-HELPERS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_decimal-to-hex-HELPERS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_decimal-to-hex-HELPERS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:decimal-to-hex-HELPER"</span><span class="tAN"> as=</span><span class="tAV">"xs:string+"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"decimalNumber"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"hexDigits"</span><span class="tAN"> select=</span><span class="tAV">"'0123456789ABCDEF'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$decimalNumber &gt;= 16"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"pa:decimal-to-hex-HELPER(floor($decimalNumber div 16))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"substring($hexDigits, (($decimalNumber mod 16) + 1), 1)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_is-not-elementS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:is-not-element (<span class="fParams">item</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_is-not-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_is-not-elementS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_is-not-elementS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Author:</b> Gregor Fellenz
+                                 </p>
+                                 			
+                                 <p>Not-Element Prüfung</p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>item</b></td>
+                                       <td>Aktueller Node</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_is-not-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_is-not-elementS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_is-not-elementS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">item</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_is-not-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_is-not-elementS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_is-not-elementS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:is-not-element"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"item"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$item[not(self::*)]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">Stylesheet documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div><script type="text/javascript">
+         <!--
+                    // The namespace is the selected option in the TOC combo.
+                    
+                    // The corresponding div is already visible conf. to its style attr.                     
+                    
+                            var selectToc = getElementObject('selectTOC');
+                            if(selectToc != null){
+                            // It can be null when having chunking, the combo of the TOC is in another frame.
+                            selectToc.selectedIndex = 2;
+                            }
+                        
+                    
+                    // Floats the toolbar.
+                    var globalControls = getElementObject("global_controls"); 
+                    
+                    if(globalControls != null){
+                    var browser=navigator.appName;
+                    var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+                    
+                    var IE6 = false;
+                    if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+                    IE6 = true;
+                    }
+                    
+                    //alert (IE6 + " |V| " + version);
+                    
+                    if(IE6){
+                    // On IE 6 the 'fixed' property is not supported. We must use javascript. 
+                    globalControls.style.position='absolute';                         
+                    // The global controls will do not exist in the TOC frame, when chunking.
+                    findAndFloat("global_controls", 225, 30);    
+                    } else {
+                    globalControls.style.position='fixed';                     	
+                    }
+                    
+                    globalControls.style.right='0';                       
+                    }
+                //--></script></body>
+</html>

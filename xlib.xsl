@@ -11,9 +11,8 @@
 		<xd:desc>
 			<xd:p>=======================================================================================</xd:p>
 			<xd:p><xd:b>Titel:</xd:b> pagina xLib</xd:p>
-			<xd:p><xd:b>Projekt:</xd:b> pagina - Entwicklung - Projektübergreifend</xd:p>
 			<xd:p><xd:b>Version:</xd:b> 0.6</xd:p>
-			<xd:p><xd:b>Datum:</xd:b> 2013-06-10</xd:p>
+			<xd:p><xd:b>Datum:</xd:b> 2013-11-29</xd:p>
 			<xd:p><xd:b>Autoren:</xd:b></xd:p>
 			<xd:ul>
 				<xd:li>Björn Dünckel</xd:li>
@@ -38,18 +37,6 @@
 			</xd:ul>
 		</xd:desc>
 	</xd:doc>
-	
-	
-	<!-- ============================================================================================================================================ -->
-	
-	
-	<xd:doc>
-		<xd:desc>
-			<xd:p><xd:b>Funktion:</xd:b> [[Beschreibung in natürlicher Sprache, welche Quellstruktur in welche Zielstruktur Transformiert wird]]</xd:p>
-			<xd:p><xd:b>Aufbau:</xd:b> [[Beschreibung in natürlicher Sprache, wie das Template aufgebaut ist. Insbesondere bedingte Verarbeitung und komplexe XPath Ausdrücke dokumentieren]]</xd:p>
-		</xd:desc>
-	</xd:doc>
-	<xsl:function name="pa:xxx"/>
 	
 	
 	<!-- ============================================================================================================================================ -->
