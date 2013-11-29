@@ -39,7 +39,7 @@ Funktionen
  * Siehe Beispiel `samples/merge_files_from_source_folder/`
 * **pa:reorder**
  * Ordnet die enhaltenen Elemente des übergebenen Kontext-Elements anhand einer ebenfalls übergabenen Liste nach dem Muster 'element_a element_b #rest element_c ...', wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt.
-* **pa:create_uri**
+* **pa:create_uri** (deprecated)
  * Wandelt einen übergebenen Pfad in eine gültige URI um
 * **pa:load_xml**
  * Lädt XML aus einer Datei in eine Variable, aber nur, wenn die Datei auch wirklich vorhanden ist
