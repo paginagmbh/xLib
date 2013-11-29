@@ -140,7 +140,8 @@
 	
 	<xd:doc>
 		<xd:desc>
-			<xd:p>Wandelt einen übergebenen Pfad in eine gültige URI um</xd:p>
+			<xd:p>(deprecated) Wandelt einen übergebenen Pfad in eine gültige URI um</xd:p>
+			<xd:p>Besser ist die direkte Verwendung von <xd:i>resolve-uri($path, base-uri())</xd:i></xd:p>
 		</xd:desc>
 		<xd:param name="path">Pfad der umzuwandeln ist</xd:param>
 	</xd:doc>
