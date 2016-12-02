@@ -94,7 +94,7 @@
 		<xd:param name="context_item">Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)</xd:param>
 		<xd:param name="orderlist">Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt.</xd:param>
 	</xd:doc>
-	<xsl:function name="pa:reorder" xmlns:pag="http://www.pagina-online.de">
+	<xsl:function name="pa:reorder">
 
 		<!--Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)-->
 		<xsl:param name="context_item"/>
