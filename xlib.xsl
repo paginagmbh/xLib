@@ -12,8 +12,8 @@
 			<xd:p>=======================================================================================</xd:p>
 			<xd:p><xd:b>Titel:</xd:b> pagina xLib</xd:p>
 			<xd:p><xd:b>Projekt:</xd:b> pagina - Entwicklung - Projektübergreifend</xd:p>
-			<xd:p><xd:b>Version:</xd:b> 0.7</xd:p>
-			<xd:p><xd:b>Datum:</xd:b> 2015-05-06</xd:p>
+			<xd:p><xd:b>Version:</xd:b> 0.8</xd:p>
+			<xd:p><xd:b>Datum:</xd:b> 2016-12-02</xd:p>
 			<xd:p><xd:b>Autoren:</xd:b></xd:p>
 			<xd:ul>
 				<xd:li>Björn Dünckel</xd:li>
@@ -21,7 +21,7 @@
 				<xd:li>Tobias Fischer</xd:li>
 				<xd:li>Rupert Jung</xd:li>
 			</xd:ul>
-			<xd:p><xd:b>Copyright:</xd:b> 2011-2015 pagina GmbH, Tübingen</xd:p>
+			<xd:p><xd:b>Copyright:</xd:b> 2011-2016 pagina GmbH, Tübingen</xd:p>
 			<xd:p>=======================================================================================</xd:p>
 			<xd:p>Die pagina XLib sammelt XSLT-Funktionen für den Projektübergreifenden Einsatz.</xd:p>
 			<xd:p>Andere Quellen für XSLT Funktionen:</xd:p>
@@ -146,7 +146,7 @@
 		</xd:desc>
 		<xd:param name="path">Pfad der umzuwandeln ist</xd:param>
 	</xd:doc>
-	<xsl:function name="pa:create_uri">
+	<xsl:function name="pa:create_uri" as="xs:string">
 		<xsl:param name="path" as="xs:string"/>
 		
 		<xsl:value-of select="concat('file:///', replace(replace($path, '\\', '/'), ' ', '%20'))"/>
@@ -299,21 +299,19 @@
 		</xd:desc>
 		<xd:param name="int">Integer-Zahl > 0</xd:param>
 	</xd:doc>
-	<xsl:function name="pa:int-to-letter">
+	<xsl:function name="pa:int-to-letter" as="xs:string">
 		<xsl:param name="int" as="xs:integer"/>
 		<xsl:choose>
 			<xsl:when test="$int lt 27">
-				<xsl:value-of select="codepoints-to-string($int+96)"/>
+				<xsl:sequence select="codepoints-to-string($int+96)"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:choose>
 					<xsl:when test="$int mod 26 = 0">
-						<xsl:value-of select="pa:int-to-letter(($int div 26)-1)"/>
-						<xsl:value-of select="pa:int-to-letter(($int -1) mod 26 + 1)"/>
+						<xsl:sequence select="concat( pa:int-to-letter(($int div 26)-1), pa:int-to-letter(($int -1) mod 26 + 1) )"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="pa:int-to-letter(xs:integer($int div 26))"/>
-						<xsl:value-of select="pa:int-to-letter($int mod 26)"/>
+						<xsl:sequence select="concat( pa:int-to-letter(xs:integer($int div 26)), pa:int-to-letter($int mod 26) )"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:otherwise>
