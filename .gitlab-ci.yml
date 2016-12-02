@@ -1,0 +1,15 @@
+# This file is a template, and might need editing before it works on your project.
+# This template uses the java:8 docker image
+image: java:8
+
+# Clone the xspec sources and set the Saxon Path
+before_script:
+  - git clone -b master https://github.com/xspec/xspec.git /tmp/xspec
+  - export SAXON_CP=/tmp/xspec/saxon/saxon9he.jar
+
+# Run the xspec tests
+test:
+  stage: test
+  script:
+    - cd test
+    - ./run-xspec-tests.sh
