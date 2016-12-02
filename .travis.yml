@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk7
+  - oraclejdk8
+before_script:
+  - git clone -b master https://github.com/xspec/xspec.git /tmp/xspec
+  - export SAXON_CP=/tmp/xspec/saxon9he.jar
+script:
+  - cd test
+  - ./run-xspec-tests.sh

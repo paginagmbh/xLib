@@ -1,5 +1,5 @@
-pagina xLib
-====
+pagina xLib [![Build Status](https://travis-ci.org/paginagmbh/xLib.svg?branch=master)](https://travis-ci.org/paginagmbh/xLib)
+===========
 
 Die pagina xLib ist eine XSLT Function Library und bündelt einige XSLT-Funktionen aus unserem Entwickler-Alltag. Sie steht unter einer offenen MIT-Lizenz ([_Was ist erlaubt?_](http://choosealicense.com/licenses/mit/)).
 
@@ -15,7 +15,7 @@ Einsatz
 
 `xlib.xsl` herunterladen und in bestehendes XSLT-Projekt includieren. pagina-Namensraum nicht vergessen!
 
-```xslt
+```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:pa="http://www.pagina-online.de/xlib"
   exclude-result-prefixes="pa"
