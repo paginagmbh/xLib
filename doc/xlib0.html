@@ -16,7 +16,7 @@
 				'prs_F_Character-to-hexCodeS_xlib.xsl', 
 				'prs_F_decimal-to-hexS_xlib.xsl', 
 				'prs_F_decimal-to-hex-HELPERS_xlib.xsl', 
-				'prs_F_is-not-elementS_xlib.xsl', 
+				'prs_F_is-elementS_xlib.xsl', 
 				'prs_F_int-to-letterS_xlib.xsl');
 
         
@@ -35,7 +35,7 @@
 				'dS_F_Character-to-hexCodeS_xlib.xsl', 
 				'dS_F_decimal-to-hexS_xlib.xsl', 
 				'dS_F_decimal-to-hex-HELPERS_xlib.xsl', 
-				'dS_F_is-not-elementS_xlib.xsl', 
+				'dS_F_is-elementS_xlib.xsl', 
 				'dS_F_int-to-letterS_xlib.xsl');
 
         var sourceBoxes= new Array('src_F_read_files_from_source_folderS_xlib.xsl', 
@@ -47,7 +47,7 @@
 				'src_F_Character-to-hexCodeS_xlib.xsl', 
 				'src_F_decimal-to-hexS_xlib.xsl', 
 				'src_F_decimal-to-hex-HELPERS_xlib.xsl', 
-				'src_F_is-not-elementS_xlib.xsl', 
+				'src_F_is-elementS_xlib.xsl', 
 				'src_F_int-to-letterS_xlib.xsl');
 
         
@@ -414,10 +414,10 @@
                                  <p><b>Projekt:</b> pagina - Entwicklung - Projektübergreifend
                                  </p>
                                  			
-                                 <p><b>Version:</b> 0.7
+                                 <p><b>Version:</b> 0.8
                                  </p>
                                  			
-                                 <p><b>Datum:</b> 2015-05-06
+                                 <p><b>Datum:</b> 2016-12-02
                                  </p>
                                  			
                                  <p><b>Autoren:</b></p>
@@ -434,7 +434,7 @@
                                     			
                                  </ul>
                                  			
-                                 <p><b>Copyright:</b> 2011-2015 pagina GmbH, Tübingen
+                                 <p><b>Copyright:</b> 2011-2016 pagina GmbH, Tübingen
                                  </p>
                                  			
                                  <p>=======================================================================================</p>
@@ -808,7 +808,7 @@
                            <div id="src_F_reorderS_xlib.xsl" style="display:block">
                               <table class="pWCont">
                                  <tr>
-                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:reorder"</span><span class="tAN"> xmlns:pag=</span><span class="tAV">"http://www.pagina-online.de"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:reorder"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tC">&lt;!--Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)--&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"context_item"</span><span class="tXSLEl">/&gt;</span><span class="tI">
   </span><span class="tC">&lt;!--Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', 
@@ -896,6 +896,10 @@
                         <td>http://www.pagina-online.de/xlib</td>
                      </tr>
                      <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
                         <td class="fCol">
                            <div class="flL">Used by</div>
                            <div class="flR"><input id="bt_uB_F_create_uriS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_F_create_uriS_xlib.xsl');" class="control" /></div>
@@ -952,7 +956,7 @@
                            <div id="src_F_create_uriS_xlib.xsl" style="display:block">
                               <table class="pWCont">
                                  <tr>
-                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:create_uri"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:create_uri"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"path"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('file:///', replace(replace($path, '\\', '/'), ' ', '%20'))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
 </span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
@@ -1145,6 +1149,10 @@
                         <td>http://www.pagina-online.de/xlib</td>
                      </tr>
                      <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
                         <td class="fCol">
                            <div class="flL">Parameters</div>
                            <div class="flR"><input id="bt_prs_F_get-current-xpathS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_get-current-xpathS_xlib.xsl');" class="control" /></div>
@@ -1179,20 +1187,19 @@
                            <div id="src_F_get-current-xpathS_xlib.xsl" style="display:block">
                               <table class="pWCont">
                                  <tr>
-                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:get-current-xpath"</span><span class="tXSLEl">&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Übergeben des aktuellen Elements--&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:get-current-xpath"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"current-node"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Merken des aktuellen Knotennamens--&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"currend-node-name"</span><span class="tAN"> select=</span><span class="tAV">"$current-node/name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Iterieren über alle Vorfahren-Elemente--&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$current-node/ancestor::*"</span><span class="tXSLEl">&gt;</span><span class="tI">
-    </span><span class="tC">&lt;!--Merken des Namens vom aktuellen Vorfahren-Element--&gt;</span><span class="tI">
-    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"currend-ancestor-name"</span><span class="tAN"> select=</span><span class="tAV">"name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-    </span><span class="tC">&lt;!--Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten--&gt;</span><span class="tI">
-    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('/',name(),'[',count(preceding-sibling::*[name()=$currend-ancestor-name])+1,']')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!-- Abschluss des absluten XPath-Ausdrucks mit Name und Position des aktuellen Elementes --&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('/',$currend-node-name,'[',count($current-node/preceding-sibling::*[name()=$currend-node-name])+1,']')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:message</span><span class="tAN"> select=</span><span class="tAV">"$current-node"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"temp"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- Iterieren über alle Vorfahren-Elemente --&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$current-node/ancestor-or-self::*"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- Merken des Namens vom aktuellen Vorfahren-Element --&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"current-ancestor-name"</span><span class="tAN"> select=</span><span class="tAV">"name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten --&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('/',name(),'[',count(preceding-sibling::*[name()=$current-ancestor-name])+1,']')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"string-join($temp,'')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
 </span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -1656,8 +1663,8 @@
             <td class="rt_lB"></td>
             <td class="rt_cBR"></td>
          </tr>
-      </table><a id="F_is-not-elementS_xlib.xsl"></a><div class="cmpT">Function
-         <span class="qname">pa:is-not-element (<span class="fParams">item</span>)</span></div>
+      </table><a id="F_is-elementS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:is-element (<span class="fParams">item</span>)</span></div>
       <table class="rt">
          <tr>
             <td class="rt_cTL"></td>
@@ -1672,17 +1679,17 @@
                      <tr>
                         <td class="fCol">
                            <div class="flL">Documentation</div>
-                           <div class="flR"><input id="bt_dS_F_is-not-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_is-not-elementS_xlib.xsl');" class="control" /></div>
+                           <div class="flR"><input id="bt_dS_F_is-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_is-elementS_xlib.xsl');" class="control" /></div>
                         </td>
                         <td>
-                           <div id="dS_F_is-not-elementS_xlib.xsl" style="display:block">
+                           <div id="dS_F_is-elementS_xlib.xsl" style="display:block">
                               <div>
                                  <h3>Description</h3>
                                  			
                                  <p><b>Author:</b> Gregor Fellenz
                                  </p>
                                  			
-                                 <p>Not-Element Prüfung</p>
+                                 <p>Is-Element Prüfung</p>
                                  		
                                  <table>
                                     <tr>
@@ -1703,12 +1710,16 @@
                         <td>http://www.pagina-online.de/xlib</td>
                      </tr>
                      <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:boolean</td>
+                     </tr>
+                     <tr>
                         <td class="fCol">
                            <div class="flL">Parameters</div>
-                           <div class="flR"><input id="bt_prs_F_is-not-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_is-not-elementS_xlib.xsl');" class="control" /></div>
+                           <div class="flR"><input id="bt_prs_F_is-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_is-elementS_xlib.xsl');" class="control" /></div>
                         </td>
                         <td>
-                           <div id="prs_F_is-not-elementS_xlib.xsl" style="display:block">
+                           <div id="prs_F_is-elementS_xlib.xsl" style="display:block">
                               <table class="attsT">
                                  <thead>
                                     <tr>
@@ -1731,15 +1742,15 @@
                      <tr>
                         <td class="fCol">
                            <div class="flL">Source</div>
-                           <div class="flR"><input id="bt_src_F_is-not-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_is-not-elementS_xlib.xsl');" class="control" /></div>
+                           <div class="flR"><input id="bt_src_F_is-elementS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_is-elementS_xlib.xsl');" class="control" /></div>
                         </td>
                         <td>
-                           <div id="src_F_is-not-elementS_xlib.xsl" style="display:block">
+                           <div id="src_F_is-elementS_xlib.xsl" style="display:block">
                               <table class="pWCont">
                                  <tr>
-                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:is-not-element"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:is-element"</span><span class="tAN"> as=</span><span class="tAV">"xs:boolean"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"item"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$item[not(self::*)]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"if($item[self::*]) then true() else false()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
 </span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -1805,6 +1816,10 @@
                      <tr>
                         <td class="fCol">Namespace</td>
                         <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
                      </tr>
                      <tr>
                         <td class="fCol">
@@ -1883,21 +1898,19 @@
                            <div id="src_F_int-to-letterS_xlib.xsl" style="display:block">
                               <table class="pWCont">
                                  <tr>
-                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:int-to-letter"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:int-to-letter"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"int"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tXSLEl">/&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$int lt 27"</span><span class="tXSLEl">&gt;</span><span class="tI">
-      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"codepoints-to-string($int+96)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"codepoints-to-string($int+96)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$int mod 26 = 0"</span><span class="tXSLEl">&gt;</span><span class="tI">
-          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"pa:int-to-letter(($int div 26)-1)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"pa:int-to-letter(($int -1) mod 26 + 1)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"concat( pa:int-to-letter(($int div 26)-1), pa:int-to-letter(($int -1) mod 26 + 1) )"</span><span class="tXSLEl">/&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
-          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"pa:int-to-letter(xs:integer($int div 26))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"pa:int-to-letter($int mod 26)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"concat( pa:int-to-letter(xs:integer($int div 26)), pa:int-to-letter($int mod 26) )"</span><span class="tXSLEl">/&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
