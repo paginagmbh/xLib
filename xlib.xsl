@@ -277,13 +277,13 @@
 	<xd:doc>
 		<xd:desc>
 			<xd:p><xd:b>Author:</xd:b> Gregor Fellenz</xd:p>
-			<xd:p>Not-Element Prüfung</xd:p>
+			<xd:p>Is-Element Prüfung</xd:p>
 		</xd:desc>
 		<xd:param name="item">Aktueller Node</xd:param>
 	</xd:doc>
-	<xsl:function name="pa:is-not-element">
+	<xsl:function name="pa:is-element" as="xs:boolean">
 		<xsl:param name="item"/>
-		<xsl:sequence select="$item[not(self::*)]"/>
+		<xsl:sequence select="if($item[self::*]) then true() else false()"/>
 	</xsl:function>
 	
 	

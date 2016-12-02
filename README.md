@@ -50,5 +50,5 @@ Funktionen
  * Gibt den hexadezimalen Code eines Unicode-codierten Zeichens zurück. Rückgabeformat: mind. 4-stellig mit führenden Nullen und `#x`
 * **pa:decimal-to-hex**
  * Wandelt eine Dezimalzahl in hexadezimalformat um
-* **pa:is-not-element**
- * Not-Element Prüfung
+* **pa:is-element**
+ * Is-Element Prüfung
