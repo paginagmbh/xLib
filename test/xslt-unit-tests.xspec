@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+	xmlns:pa="http://www.pagina-online.de/xlib"
+	stylesheet="../xlib.xsl">
+	
+	
+	<x:scenario label="Scenario for testing function create_uri">
+		<x:scenario label="Windows Pfad">
+			<x:call function="pa:create_uri">
+				<x:param name="path" select="'C:\Users\To Fi\git\xLib\demo.xsl'"/>
+			</x:call>
+			<x:expect label="Windows-Pfad" select="xs:string('file:///C:/Users/To%20Fi/git/xLib/demo.xsl')"/>
+		</x:scenario>
+		<x:scenario label="Mac Pfad">
+			<x:call function="pa:create_uri">
+				<x:param name="path" select="'/Users/To Fi/git/xLib/demo.xsl'"/>
+			</x:call>
+			<x:expect label="Mac-Pfad" select="xs:string('file:////Users/To%20Fi/git/xLib/demo.xsl')"/>
+		</x:scenario>
+	</x:scenario>
+	
+	
+	<x:scenario label="Scenario for testing function Character-to-hexCode">
+		<x:scenario label="pa:Character-to-hexCode('A')">
+			<x:call function="pa:Character-to-hexCode">
+				<x:param name="character" select="'A'"/>
+			</x:call>
+			<x:expect label="A ist #x0041" select="'#x0041'"/>
+		</x:scenario>
+		<x:scenario label="pa:Character-to-hexCode('&#x2001;')">
+			<x:call function="pa:Character-to-hexCode">
+				<x:param name="character" select="'&#x2001;'"/>
+			</x:call>
+			<x:expect label="Em Space ist #x2001" select="'#x2001'"/>
+		</x:scenario>
+		<x:scenario label="pa:Character-to-hexCode('&#x1F600;')">
+			<x:call function="pa:Character-to-hexCode">
+				<x:param name="character" select="'&#x1F600;'"/>
+			</x:call>
+			<x:expect label="&#x1F600; ist #x1F600" select="'#x1F600'"/>
+		</x:scenario>
+	</x:scenario>
+	
+	
+	<x:scenario label="Scenario for testing function decimal-to-hex">
+		<x:scenario label="pa:decimal-to-hex(65)">
+			<x:call function="pa:decimal-to-hex">
+				<x:param name="decimalNumber" select="65"/>
+			</x:call>
+			<x:expect label="Dezimalzahl 65 ist hexadezimal 41" select="'41'"/>
+		</x:scenario>
+		<x:scenario label="pa:decimal-to-hex(8193)">
+			<x:call function="pa:decimal-to-hex">
+				<x:param name="decimalNumber" select="8193"/>
+			</x:call>
+			<x:expect label="Dezimalzahl 8193 ist hexadezimal 2001" select="'2001'"/>
+		</x:scenario>
+		<x:scenario label="pa:decimal-to-hex(128512)">
+			<x:call function="pa:decimal-to-hex">
+				<x:param name="decimalNumber" select="128512"/>
+			</x:call>
+			<x:expect label="Dezimalzahl 128512 ist hexadezimal 1F600" select="'1F600'"/>
+		</x:scenario>
+	</x:scenario>
+	
+	
+	<x:scenario label="Scenario for testing function is-element">
+		<x:scenario label="Test auf Element">
+			<x:call function="pa:is-element">
+				<x:param name="item"><root/></x:param>
+			</x:call>
+			<x:expect label="Element ist ein Element -> true()" select="true()"/>
+		</x:scenario>
+		<x:scenario label="Test auf Attribut">
+			<x:call function="pa:is-element">
+				<x:param name="item" select="@attribut"/>
+			</x:call>
+			<x:expect label="Attribut ist kein Element -> false()" select="false()"/>
+		</x:scenario>
+		<x:scenario label="Test auf Kommentar">
+			<x:call function="pa:is-element">
+				<x:param name="item"><!-- comment --></x:param>
+			</x:call>
+			<x:expect label="Kommentar ist kein Element -> false()" select="false()"/>
+		</x:scenario>
+		<x:scenario label="Test auf PI">
+			<x:call function="pa:is-element">
+				<x:param name="item"><?processing instruction?></x:param>
+			</x:call>
+			<x:expect label="PI ist kein Element -> false()" select="false()"/>
+		</x:scenario>
+	</x:scenario>
+	
+	
+	<x:scenario label="Scenario for testing function int-to-letter">
+		<x:scenario label="pa:int-to-letter(1)">
+			<x:call function="pa:int-to-letter">
+				<x:param name="int" select="1"/>
+			</x:call>
+			<x:expect label="1 -> a" select="'a'"/>
+		</x:scenario>
+		<x:scenario label="pa:int-to-letter(13)">
+			<x:call function="pa:int-to-letter">
+				<x:param name="int" select="13"/>
+			</x:call>
+			<x:expect label="13 -> m" select="'m'"/>
+		</x:scenario>
+		<x:scenario label="pa:int-to-letter(26)">
+			<x:call function="pa:int-to-letter">
+				<x:param name="int" select="26"/>
+			</x:call>
+			<x:expect label="26 -> z" select="'z'"/>
+		</x:scenario>
+		<x:scenario label="pa:int-to-letter(27)">
+			<x:call function="pa:int-to-letter">
+				<x:param name="int" select="27"/>
+			</x:call>
+			<x:expect label="27 -> aa" select="'aa'"/>
+		</x:scenario>
+		<x:scenario label="pa:int-to-letter(39)">
+			<x:call function="pa:int-to-letter">
+				<x:param name="int" select="39"/>
+			</x:call>
+			<x:expect label="39 -> am" select="'am'"/>
+		</x:scenario>
+		<x:scenario label="pa:int-to-letter(113)">
+			<x:call function="pa:int-to-letter">
+				<x:param name="int" select="113"/>
+			</x:call>
+			<x:expect label="113 -> di" select="'di'"/>
+		</x:scenario>
+	</x:scenario>
+	
+</x:description>
