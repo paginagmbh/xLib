@@ -52,3 +52,6 @@ Funktionen
  * Wandelt eine Dezimalzahl in hexadezimalformat um
 * **pa:is-element**
  * Is-Element Prüfung
+* **pa:int-to-letter**
+ * Wandelt eine Integer-Zahl in eine Alphabet-Sequenz um
+ * Beispiel: `1` > `a`, `27` > `aa`, `28` > `ab`, etc...
