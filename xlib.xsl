@@ -183,26 +183,24 @@
 		</xd:desc>
 		<xd:param name="current-node">Der Kontext-Knoten</xd:param>
 	</xd:doc>
-	<xsl:function name="pa:get-current-xpath">
-		
-		<!--Übergeben des aktuellen Elements-->
+	<xsl:function name="pa:get-current-xpath" as="xs:string">
 		<xsl:param name="current-node"/>
 		
-		<!--Merken des aktuellen Knotennamens-->
-		<xsl:variable name="currend-node-name" select="$current-node/name()"/>
+		<xsl:message select="$current-node"></xsl:message>
 		
-		<!--Iterieren über alle Vorfahren-Elemente-->
-		<xsl:for-each select="$current-node/ancestor::*">
-			
-			<!--Merken des Namens vom aktuellen Vorfahren-Element-->
-			<xsl:variable name="currend-ancestor-name" select="name()"/>
-			
-			<!--Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten-->
-			<xsl:value-of select="concat('/',name(),'[',count(preceding-sibling::*[name()=$currend-ancestor-name])+1,']')"/>
-		</xsl:for-each>
+		<xsl:variable name="temp">
+			<!-- Iterieren über alle Vorfahren-Elemente -->
+			<xsl:for-each select="$current-node/ancestor-or-self::*">
+				
+				<!-- Merken des Namens vom aktuellen Vorfahren-Element -->
+				<xsl:variable name="current-ancestor-name" select="name()"/>
+				
+				<!-- Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten -->
+				<xsl:value-of select="concat('/',name(),'[',count(preceding-sibling::*[name()=$current-ancestor-name])+1,']')"/>
+			</xsl:for-each>
+		</xsl:variable>
 		
-		<!-- Abschluss des absluten XPath-Ausdrucks mit Name und Position des aktuellen Elementes -->
-		<xsl:value-of select="concat('/',$currend-node-name,'[',count($current-node/preceding-sibling::*[name()=$currend-node-name])+1,']')"/>
+		<xsl:sequence select="string-join($temp,'')"/>
 	</xsl:function>
 	
 	
