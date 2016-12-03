@@ -1,2 +1,4 @@
 .DS_Store
 /test/xslt-unit-tests-result.html
+/test/xspec
+/test/result.log
