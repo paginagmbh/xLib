@@ -20,6 +20,20 @@
 	</x:scenario>
 	
 	
+	<x:scenario label="When passing a node to function get-current-xpath">
+		<x:call function="pa:get-current-xpath">
+			<x:param name="current-node" select="/root/element/child/inline/node()">
+				<root>
+					<element>
+						<child>Content <inline>in</inline> child</child>
+					</element>
+				</root>
+			</x:param>
+		</x:call>
+		<x:expect label="it should return the absolute path of the node" select="'/root[1]/element[1]/child[1]/inline[1]'"/>
+	</x:scenario>
+	
+	
 	<x:scenario label="Scenario for testing function Character-to-hexCode">
 		<x:scenario label="pa:Character-to-hexCode('A')">
 			<x:call function="pa:Character-to-hexCode">
