@@ -13,7 +13,7 @@ Einige Funktionen (vor allem die XML-JOIN-Operationen) sind auch mit Beispieldat
 Einsatz
 ------
 
-`xlib.xsl` herunterladen und in bestehendes XSLT-Projekt includieren. pagina-Namensraum nicht vergessen!
+`xlib.xsl` herunterladen und in bestehendes XSLT-Projekt includieren. pagina-Namespace nicht vergessen!
 
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
