@@ -5,6 +5,10 @@ image: java:8
 # Clone the xspec sources and set the Saxon Path
 before_script:
   - git clone -b master https://github.com/xspec/xspec.git /tmp/xspec
+  # install saxon 9.7.0-14
+  - mkdir -p /tmp/xspec/saxon
+  - wget -O /tmp/xspec/saxon/saxon9he.jar http://central.maven.org/maven2/net/sf/saxon/Saxon-HE/9.7.0-14/Saxon-HE-9.7.0-14.jar
+  - chmod +x /tmp/xspec/saxon/saxon9he.jar
   - export SAXON_CP=/tmp/xspec/saxon/saxon9he.jar
 
 # Run the xspec tests
