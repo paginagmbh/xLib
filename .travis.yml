@@ -5,9 +5,8 @@ jdk:
 env:
   matrix:
     - SAXON_VERSION=9.7.0-14
-    - SAXON_VERSION=9.6.0-7
+    - SAXON_VERSION=9.6.0-10
 before_script:
-  # install saxon 9.7.0-14
   - git clone -b v0.5.0 https://github.com/xspec/xspec.git /tmp/xspec
   - mkdir -p /tmp/xspec/saxon
   - export SAXON_CP=/tmp/xspec/saxon/saxon9he.jar
