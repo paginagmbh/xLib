@@ -4,7 +4,7 @@ image: java:8
 
 # Clone the xspec sources and set the Saxon Path
 before_script:
-  - git clone -b master https://github.com/xspec/xspec.git /tmp/xspec
+  - git clone -b v0.5.0 https://github.com/xspec/xspec.git /tmp/xspec
   - mkdir -p /tmp/xspec/saxon
   - export SAXON_CP=/tmp/xspec/saxon/saxon9he.jar
   - wget -O ${SAXON_CP} http://central.maven.org/maven2/net/sf/saxon/Saxon-HE/${SAXON_VERSION}/Saxon-HE-${SAXON_VERSION}.jar
