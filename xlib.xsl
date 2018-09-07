@@ -47,9 +47,9 @@
 		<xd:desc>
 			<xd:p><xd:b>Funktion:</xd:b> Erzeugt ein Container Element ($1). Liest alle XML-Dokumente des Ordners einer Quelldatei ein und speichert Sie in ein weiteres Container Element ($2). Übergeben wird immer der document-node "/" ($3).</xd:p>
 		</xd:desc>
-		<xd:param>Name des umgebendesn Container-Elements für die Dateien</xd:param>
-		<xd:param>Name des umgebendesn Container-Elements für die einzelne Datei</xd:param>
-		<xd:param>Document Node "/"</xd:param>
+		<xd:param name="files_container">Name des umgebendesn Container-Elements für die Dateien</xd:param>
+		<xd:param name="file_container">Name des umgebendesn Container-Elements für die einzelne Datei</xd:param>
+		<xd:param name="rootnode">Document Node "/"</xd:param>
 	</xd:doc>
 	<xsl:function name="pa:read_files_from_source_folder">
 		<xsl:param name="files_container" as="xs:string"/>
@@ -73,7 +73,7 @@
 		<xd:desc>
 			<xd:p><xd:b>Funktion:</xd:b> Fügt alle Dokumente aus dem Quellverzeichnis ein. Übergeben wird immer der document-node "/" ($3).</xd:p>
 		</xd:desc>
-		<xd:param>Document Node "/"</xd:param>
+		<xd:param name="rootnode">Document Node "/"</xd:param>
 	</xd:doc>
 	<xsl:function name="pa:merge_files_from_source_folder">
 		<xsl:param name="rootnode" as="node()"/>
@@ -96,38 +96,38 @@
 	</xd:doc>
 	<xsl:function name="pa:reorder">
 
-		<!--Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)-->
+		<!-- Das Kontext-Item (geht beim Funktionsaufruf sonst verloren) -->
 		<xsl:param name="context_item"/>
 
-		<!--Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', 
-			wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt.-->
+		<!-- Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', 
+			wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt. -->
 		<xsl:param name="orderlist" as="xs:string"/>
 
-		<!--Übergebene Elementliste aufsplitten-->
+		<!-- Übergebene Elementliste aufsplitten -->
 		<xsl:variable name="elements" select="tokenize($orderlist, '\s+')"/>
 
-		<!--Elementliste durchlaufen-->
+		<!-- Elementliste durchlaufen-->
 		<xsl:for-each select="$elements">
 
-			<!--Aktuelles Element in Variable speichern ('self::' ändert sich später)-->
+			<!-- Aktuelles Element in Variable speichern ('self::' ändert sich später) -->
 			<xsl:variable name="element" select="."/>
 
-			<!--Fallunterscheidung für den Namen des Elements-->
+			<!-- Fallunterscheidung für den Namen des Elements -->
 			<xsl:choose>
 
-				<!--ggf. alle anderen Elemente abarbeiten-->
+				<!-- ggf. alle anderen Elemente abarbeiten -->
 				<xsl:when test=".='#rest'">
 
-					<!--Alle Elemente prozessieren, die NICHT zu einem der Ausdrücke (RegExp) in der Elementliste passen-->
+					<!-- Alle Elemente prozessieren, die NICHT zu einem der Ausdrücke (RegExp) in der Elementliste passen -->
 					<xsl:apply-templates
 						select="$context_item/* except ($context_item/*[some $regex in $elements satisfies (matches(name(), $regex))])"
 					/>
 				</xsl:when>
 
-				<!--Normaler Elementaufruf-->
+				<!-- Normaler Elementaufruf-->
 				<xsl:otherwise>
 
-					<!--Alle Elemente prozessieren, die zum Ausdruck passen (RegExp)-->
+					<!-- Alle Elemente prozessieren, die zum Ausdruck passen (RegExp) -->
 					<xsl:apply-templates select="$context_item/*[matches(name(), $element)]"/>
 				</xsl:otherwise>
 			</xsl:choose>
@@ -186,16 +186,14 @@
 	<xsl:function name="pa:get-current-xpath" as="xs:string">
 		<xsl:param name="current-node"/>
 		
-		<xsl:message select="$current-node"></xsl:message>
-		
 		<xsl:variable name="temp">
 			<!-- Iterieren über alle Vorfahren-Elemente -->
 			<xsl:for-each select="$current-node/ancestor-or-self::*">
 				
-				<!-- Merken des Namens vom aktuellen Vorfahren-Element -->
+				<!-- Merke Namen des aktuellen Vorfahren-Element -->
 				<xsl:variable name="current-ancestor-name" select="name()"/>
 				
-				<!-- Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten -->
+				<!-- Aufbau des absoluten XPath-Ausdrucks vom ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten -->
 				<xsl:value-of select="concat('/',name(),'[',count(preceding-sibling::*[name()=$current-ancestor-name])+1,']')"/>
 			</xsl:for-each>
 		</xsl:variable>
@@ -245,9 +243,6 @@
 		<xsl:param name="decimalNumber"/>
 		<xsl:sequence select="string-join(pa:decimal-to-hex-HELPER($decimalNumber),'')"/>
 	</xsl:function>
-	
-	
-	<!-- ============================================================================================================================================ -->
 	
 	
 	<xd:doc>
