@@ -12,8 +12,8 @@
 			<xd:p>=======================================================================================</xd:p>
 			<xd:p><xd:b>Titel:</xd:b> pagina xLib</xd:p>
 			<xd:p><xd:b>Projekt:</xd:b> pagina - Entwicklung - Projektübergreifend</xd:p>
-			<xd:p><xd:b>Version:</xd:b> 0.8</xd:p>
-			<xd:p><xd:b>Datum:</xd:b> 2016-12-02</xd:p>
+			<xd:p><xd:b>Version:</xd:b> 0.9</xd:p>
+			<xd:p><xd:b>Datum:</xd:b> 2018-09-07</xd:p>
 			<xd:p><xd:b>Autoren:</xd:b></xd:p>
 			<xd:ul>
 				<xd:li>Björn Dünckel</xd:li>
@@ -21,7 +21,7 @@
 				<xd:li>Tobias Fischer</xd:li>
 				<xd:li>Rupert Jung</xd:li>
 			</xd:ul>
-			<xd:p><xd:b>Copyright:</xd:b> 2011-2016 pagina GmbH, Tübingen</xd:p>
+			<xd:p><xd:b>Copyright:</xd:b> 2011-2018 pagina GmbH, Tübingen</xd:p>
 			<xd:p>=======================================================================================</xd:p>
 			<xd:p>Die pagina XLib sammelt XSLT-Funktionen für den Projektübergreifenden Einsatz.</xd:p>
 			<xd:p>Andere Quellen für XSLT Funktionen:</xd:p>
@@ -309,6 +309,22 @@
 				</xsl:choose>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:function>
+	
+	
+	<!-- ============================================================================================================================================ -->
+	
+	
+	<xd:doc>
+		<xd:desc>
+			<xd:p><xd:b>Author:</xd:b> Tobias Fischer</xd:p>
+			<xd:p>Wandelt den ersten Buchstaben des Input-Strings in einen Großbuchstaben um</xd:p>
+		</xd:desc>
+		<xd:param name="arg">Input-String</xd:param>
+	</xd:doc>
+	<xsl:function name="pa:capitalize-first" as="xs:string?">
+		<xsl:param name="arg" as="xs:string?"/> 
+		<xsl:sequence select="concat(upper-case(substring($arg,1,1)), substring($arg,2))"/>
 	</xsl:function>
 
 </xsl:stylesheet>

@@ -17,7 +17,8 @@
 				'prs_F_decimal-to-hexS_xlib.xsl', 
 				'prs_F_decimal-to-hex-HELPERS_xlib.xsl', 
 				'prs_F_is-elementS_xlib.xsl', 
-				'prs_F_int-to-letterS_xlib.xsl');
+				'prs_F_int-to-letterS_xlib.xsl', 
+				'prs_F_capitalize-firstS_xlib.xsl');
 
         
         var usedByBoxes= new Array('uB_F_create_uriS_xlib.xsl', 
@@ -36,7 +37,8 @@
 				'dS_F_decimal-to-hexS_xlib.xsl', 
 				'dS_F_decimal-to-hex-HELPERS_xlib.xsl', 
 				'dS_F_is-elementS_xlib.xsl', 
-				'dS_F_int-to-letterS_xlib.xsl');
+				'dS_F_int-to-letterS_xlib.xsl', 
+				'dS_F_capitalize-firstS_xlib.xsl');
 
         var sourceBoxes= new Array('src_F_read_files_from_source_folderS_xlib.xsl', 
 				'src_F_merge_files_from_source_folderS_xlib.xsl', 
@@ -48,7 +50,8 @@
 				'src_F_decimal-to-hexS_xlib.xsl', 
 				'src_F_decimal-to-hex-HELPERS_xlib.xsl', 
 				'src_F_is-elementS_xlib.xsl', 
-				'src_F_int-to-letterS_xlib.xsl');
+				'src_F_int-to-letterS_xlib.xsl', 
+				'src_F_capitalize-firstS_xlib.xsl');
 
         
         
@@ -414,10 +417,10 @@
                                  <p><b>Projekt:</b> pagina - Entwicklung - Projektübergreifend
                                  </p>
                                  			
-                                 <p><b>Version:</b> 0.8
+                                 <p><b>Version:</b> 0.9
                                  </p>
                                  			
-                                 <p><b>Datum:</b> 2016-12-02
+                                 <p><b>Datum:</b> 2018-09-07
                                  </p>
                                  			
                                  <p><b>Autoren:</b></p>
@@ -434,7 +437,7 @@
                                     			
                                  </ul>
                                  			
-                                 <p><b>Copyright:</b> 2011-2016 pagina GmbH, Tübingen
+                                 <p><b>Copyright:</b> 2011-2018 pagina GmbH, Tübingen
                                  </p>
                                  			
                                  <p>=======================================================================================</p>
@@ -446,17 +449,17 @@
                                  <ul>
                                     				
                                     <li class="doc">
-                                       					<a href="http://www.xsltfunctions.com/" target="_self">FunctX XSLT Functions</a>
+                                       					<a href="http://www.xsltfunctions.com/" target="_blank">FunctX XSLT Functions</a>
                                        				
                                     </li>
                                     				
                                     <li class="doc">
-                                       					<a href="http://www.exslt.org/" target="_self">EXSLT</a>
+                                       					<a href="http://www.exslt.org/" target="_blank">EXSLT</a>
                                        				
                                     </li>
                                     				
                                     <li class="doc">
-                                       					<a href="http://code.google.com/p/xslt-sb/" target="_self">XSLT-SB</a>
+                                       					<a href="http://code.google.com/p/xslt-sb/" target="_blank">XSLT-SB</a>
                                        				
                                     </li>
                                     			
@@ -511,15 +514,15 @@
                                  <table>
                                     <tr>
                                        <h4>Parameters</h4>
-                                       <td class="paramName"><b></b></td>
+                                       <td class="paramName"><b>files_container</b></td>
                                        <td>Name des umgebendesn Container-Elements für die Dateien</td>
                                     </tr>
                                     <tr>
-                                       <td class="paramName"><b></b></td>
+                                       <td class="paramName"><b>file_container</b></td>
                                        <td>Name des umgebendesn Container-Elements für die einzelne Datei</td>
                                     </tr>
                                     <tr>
-                                       <td class="paramName"><b></b></td>
+                                       <td class="paramName"><b>rootnode</b></td>
                                        <td>Document Node "/"</td>
                                     </tr>
                                  </table>
@@ -638,7 +641,7 @@
                                  <table>
                                     <tr>
                                        <h4>Parameters</h4>
-                                       <td class="paramName"><b></b></td>
+                                       <td class="paramName"><b>rootnode</b></td>
                                        <td>Document Node "/"</td>
                                     </tr>
                                  </table>
@@ -809,27 +812,27 @@
                               <table class="pWCont">
                                  <tr>
                                     <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:reorder"</span><span class="tXSLEl">&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Das Kontext-Item (geht beim Funktionsaufruf sonst verloren)--&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- Das Kontext-Item (geht beim Funktionsaufruf sonst verloren) --&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"context_item"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', 
-			wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt.--&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- Liste der neu zu ordnenden Elementen in der Reihenfolge des Aufrufs nach der Form 'element_a element_b #rest element_c ...', 
+			wobei #rest für "Alle anderen Elemente außer die in der Liste aufgeführten" steht. Reguläre Ausdrücke bei den Elementnamen werden unterstützt. --&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"orderlist"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Übergebene Elementliste aufsplitten--&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- Übergebene Elementliste aufsplitten --&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"elements"</span><span class="tAN"> select=</span><span class="tAV">"tokenize($orderlist, '\s+')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tC">&lt;!--Elementliste durchlaufen--&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- Elementliste durchlaufen--&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$elements"</span><span class="tXSLEl">&gt;</span><span class="tI">
-    </span><span class="tC">&lt;!--Aktuelles Element in Variable speichern ('self::' ändert sich später)--&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- Aktuelles Element in Variable speichern ('self::' ändert sich später) --&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"element"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
-    </span><span class="tC">&lt;!--Fallunterscheidung für den Namen des Elements--&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- Fallunterscheidung für den Namen des Elements --&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
-      </span><span class="tC">&lt;!--ggf. alle anderen Elemente abarbeiten--&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- ggf. alle anderen Elemente abarbeiten --&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">".='#rest'"</span><span class="tXSLEl">&gt;</span><span class="tI">
-        </span><span class="tC">&lt;!--Alle Elemente prozessieren, die NICHT zu einem der Ausdrücke (RegExp) in der Elementliste passen--&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!-- Alle Elemente prozessieren, die NICHT zu einem der Ausdrücke (RegExp) in der Elementliste passen --&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"$context_item/* except ($context_item/*[some $regex in $elements satisfies (matches(name(), $regex))])"</span><span class="tXSLEl">/&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
-      </span><span class="tC">&lt;!--Normaler Elementaufruf--&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- Normaler Elementaufruf--&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
-        </span><span class="tC">&lt;!--Alle Elemente prozessieren, die zum Ausdruck passen (RegExp)--&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!-- Alle Elemente prozessieren, die zum Ausdruck passen (RegExp) --&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"$context_item/*[matches(name(), $element)]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
@@ -1189,13 +1192,12 @@
                                  <tr>
                                     <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:get-current-xpath"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"current-node"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;xsl:message</span><span class="tAN"> select=</span><span class="tAV">"$current-node"</span><span class="tXSLEl">/&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"temp"</span><span class="tXSLEl">&gt;</span><span class="tI">
     </span><span class="tC">&lt;!-- Iterieren über alle Vorfahren-Elemente --&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$current-node/ancestor-or-self::*"</span><span class="tXSLEl">&gt;</span><span class="tI">
-      </span><span class="tC">&lt;!-- Merken des Namens vom aktuellen Vorfahren-Element --&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- Merke Namen des aktuellen Vorfahren-Element --&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"current-ancestor-name"</span><span class="tAN"> select=</span><span class="tAV">"name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-      </span><span class="tC">&lt;!-- Aufbau des Absoluten XPath-Ausdrucks ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten --&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- Aufbau des absoluten XPath-Ausdrucks vom ersten Vorfahren-Element mit Name und Position bis zum Dokument-Knoten --&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('/',name(),'[',count(preceding-sibling::*[name()=$current-ancestor-name])+1,']')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
@@ -1550,9 +1552,6 @@
                                     </tr>
                                  </table>
                               </div>
-                              <hr />
-                              <div>
-                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
                            </div>
                         </td>
                      </tr>
@@ -1915,6 +1914,112 @@
       </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_capitalize-firstS_xlib.xsl"></a><div class="cmpT">Function
+         <span class="qname">pa:capitalize-first (<span class="fParams">arg</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_capitalize-firstS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_capitalize-firstS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_capitalize-firstS_xlib.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 			
+                                 <p><b>Author:</b> Tobias Fischer
+                                 </p>
+                                 			
+                                 <p>Wandelt den ersten Buchstaben des Input-Strings in einen Großbuchstaben um</p>
+                                 		
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>arg</b></td>
+                                       <td>Input-String</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ============================================================================================================================================ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.pagina-online.de/xlib</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string?</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_capitalize-firstS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_capitalize-firstS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_capitalize-firstS_xlib.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Type</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">arg</td>
+                                    <td>No namespace</td>
+                                    <td>xs:string?</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_capitalize-firstS_xlib.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_capitalize-firstS_xlib.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_capitalize-firstS_xlib.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"pa:capitalize-first"</span><span class="tAN"> as=</span><span class="tAV">"xs:string?"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"arg"</span><span class="tAN"> as=</span><span class="tAV">"xs:string?"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"concat(upper-case(substring($arg,1,1)), substring($arg,2))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
 </span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre></td>
                                  </tr>
                               </table>

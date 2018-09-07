@@ -145,4 +145,26 @@
 		</x:scenario>
 	</x:scenario>
 	
+	
+	<x:scenario label="Scenario for testing function capitalize-first">
+		<x:scenario label="pa:capitalize-first('hallo')">
+			<x:call function="pa:capitalize-first">
+				<x:param name="arg" select="'hallo'"/>
+			</x:call>
+			<x:expect label="hallo -> Hallo" select="'Hallo'"/>
+		</x:scenario>
+		<x:scenario label="pa:capitalize-first('Hallo')">
+			<x:call function="pa:capitalize-first">
+				<x:param name="arg" select="'Hallo'"/>
+			</x:call>
+			<x:expect label="Hallo -> Hallo" select="'Hallo'"/>
+		</x:scenario>
+		<x:scenario label="pa:capitalize-first('hallo welt')">
+			<x:call function="pa:capitalize-first">
+				<x:param name="arg" select="'hallo welt'"/>
+			</x:call>
+			<x:expect label="hallo welt -> Hallo Welt" select="'Hallo welt'"/>
+		</x:scenario>
+	</x:scenario>
+	
 </x:description>

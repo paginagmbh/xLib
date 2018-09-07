@@ -20,11 +20,11 @@ Einsatz
   xmlns:pa="http://www.pagina-online.de/xlib"
   exclude-result-prefixes="pa"
   version="2.0">
-  
+
 	<xsl:include href="xlib.xsl"/>
-	
+
 	...
-	
+
 </xsl:stylesheet>
 ```
 
@@ -55,3 +55,5 @@ Funktionen
 * **pa:int-to-letter**
   * Wandelt eine Integer-Zahl in eine Alphabet-Sequenz um
   * Beispiel: `1` > `a`, `27` > `aa`, `28` > `ab`, etc...
+* **pa:capitalize-first**
+  * Wandelt den ersten Buchstaben des Input-Strings in einen Großbuchstaben um
